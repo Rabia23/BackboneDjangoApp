@@ -1,0 +1,12 @@
+<% if(events.length != 0) { %>
+  <% _.each(events, function(event){ %>
+    <tr>
+      <td><a href="#"><%= event.get('name') %></a></td>
+      <td><%= event.get('price') %></td>
+      <td><%= event.get('days') %></td>
+      <td><%= event.get('description') %></td>
+    </tr>
+  <% }); %>
+<% } else { %>
+  <h5>Result Not Found.</h5>
+<% } %>

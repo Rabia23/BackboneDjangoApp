@@ -1,0 +1,12 @@
+<% if(providers.length != 0) { %>
+  <% _.each(providers, function(provider){ %>
+    <tr>
+      <td><a href="#/provider_events/<%= provider.get('slug') %>"><%= provider.get('name') %></a></td>
+      <td><%= provider.get('location') %></td>
+      <td><%= provider.get('contact_no') %></td>
+      <td><%= provider.get('description') %></td>
+    </tr>
+  <% }); %>
+<% } else { %>
+  <h5>Result Not Found.</h5>
+<% } %>

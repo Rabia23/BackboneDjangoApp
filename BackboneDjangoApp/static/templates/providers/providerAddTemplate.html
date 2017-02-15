@@ -1,0 +1,13 @@
+<form class="add-edit-form">
+  <legend><%= provider ? 'Edit' : 'New' %> Event Provider</legend>
+  <label>Provider Name</label>
+    <input name="name" type="text" value="<%= provider ? provider.get('name') : '' %>">
+  <label>Location</label>
+    <input name="location" type="text" value="<%= provider ? user.get('location') : '' %>">
+  <label>Contact No</label>
+    <input name="contact_no" type="text" value="<%= provider ? provider.get('contact_no') : '' %>">
+  <label>Description</label>
+    <input name="description" type="text" value="<%= provider ? provider.get('description') : '' %>">
+  <hr />
+  <button type="submit" class="btn"><%= provider ? 'Update' : 'Create' %></button>
+</form>
