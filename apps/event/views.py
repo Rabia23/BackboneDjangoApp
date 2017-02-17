@@ -6,6 +6,7 @@ from apps.event.models import Event
 from apps.provider.models import EventProvider
 from apps.event.serializers import EventSerializer
 from django.db import transaction
+from django.template.defaultfilters import slugify
 
 
 class EventView(APIView):
@@ -20,6 +21,10 @@ class EventView(APIView):
     @transaction.atomic
     def post(self, request, format=None):
         data = request.data
+        if 'slug' not in data:
+            data['slug'] = slugify(data['name'])
+        if 'provider_slug' in data:
+            data['event_provider'] = EventProvider.objects.filter(slug=data['provider_slug']).values('id')
         serializer = EventSerializer(data=data)
         if serializer.is_valid():
             event = serializer.save()

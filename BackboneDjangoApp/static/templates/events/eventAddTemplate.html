@@ -1,0 +1,14 @@
+<form class="event-add-edit-form">
+  <legend><%= event ? 'Edit' : 'New' %> Event</legend>
+  <label>Event Name</label>
+    <input name="name" type="text" value="<%= event ? event.get('name') : '' %>">
+  <label>Price</label>
+    <input name="price" type="text" value="<%= event ? event.get('price') : '' %>">
+  <label>Days</label>
+    <input name="days" type="text" value="<%= event ? event.get('days') : '' %>">
+  <label>Description</label>
+    <input name="description" type="text" value="<%= event ? event.get('description') : '' %>">
+    <input type="hidden" name="provider_slug" value="<%= provider_slug %>">
+  <hr />
+  <button type="submit" class="btn"><%= event ? 'Update' : 'Create' %></button>
+</form>
